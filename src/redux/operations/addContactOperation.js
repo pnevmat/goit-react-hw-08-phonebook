@@ -1,7 +1,7 @@
 import axios from 'axios';
 import actions from '../actions/addContact';
 
-axios.defaults.baseURL = 'http://localhost:4040';
+axios.defaults.baseURL = 'https://goit-phonebook-api.herokuapp.com';
 
 const onAddContact = text => dispatch => {
 

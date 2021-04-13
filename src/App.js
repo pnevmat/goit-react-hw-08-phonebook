@@ -1,86 +1,44 @@
-import React, {Component} from 'react';
-// import {connect} from 'react-redux';
+import React, {Component, lazy, Suspense} from 'react';
+import {Route, Switch} from 'react-router-dom';
 
-// import onStoreUpdate from './redux/operations/storeUpdateOperation';
-// import onAddContact from './redux/operations/addContactOperation';
-// import onDeleteContact from './redux/operations/deleteContactOperation';
-// import onSearchContacts from './redux/actions/searchContacts';
-
-// import selectors from './redux/selectors/selectors';
-
-import ContactForm from './components/ContactForm/ContactForm';
-import Filter from './components/Filter/Filter';
-import ContactList from './components/ContactList/ContactList';
+import HomePage from './views/homePage';
+import RegisterPage from './views/registerPage';
+import LoginPage from './views/loginPage';
+import ContactsPageContainer from './redux/containers/contactsPageContainer';
+// import ContactForm from './components/ContactsPage/ContactForm/ContactForm';
+// import Filter from './components/ContactsPage/Filter/Filter';
+// import ContactList from './components/ContactsPage/ContactList/ContactList';
 
 import './App.css';
 
 class PhoneBook extends Component {
 
-  // componentDidMount() {
-  //   const {onStoreUpdate} = this.props;
+  // onStateUpdate = (obj) => {
+  //   const {onAddContact} = this.props;
 
-  //     onStoreUpdate();
-  // };
+  //   if (this.props.contacts.find(contact => contact.name === obj.name)) {
+  //     alert(`${obj.name}is alredy in contacts`);
 
-  // componentDidUpdate(prevProps, prevState) {
-    
-  // };
-
-  onStateUpdate = (obj) => {
-    const {onAddContact} = this.props;
-
-    if (this.props.contacts.find(contact => contact.name === obj.name)) {
-      alert(`${obj.name}is alredy in contacts`);
-
-    } else {
-      onAddContact(obj);
-    };
-  };
-
-  // contactsFinderHandler = () => {
-  //   const {contacts} = this.props;
-
-  //   if (this.props.filter !== '') {
-  //     const foundContacts = contacts.filter(contact => 
-  //       contact.name.toLowerCase().includes(this.props.filter));
-  //     return foundContacts
+  //   } else {
+  //     onAddContact(obj);
   //   };
   // };
 
   render() {
-    const {onFilterContacts, contacts, filter, foundContacts, onDeleteContact} = this.props;
-    // const foundContacts = selectors.contactsFinderHandler(contacts, filter);
+    // const {onFilterContacts, contacts, filter, foundContacts, onDeleteContact} = this.props;
     return (
-      <section className="section">
-        <h1>Phone Book</h1>
-        <ContactForm onSubmit={this.onStateUpdate}/>
-        <h2>Contacts</h2>
-        <Filter onChange={onFilterContacts} />
-        {contacts.length !== 0 &&
-          <ContactList 
-          foundContacts={foundContacts}
-          state={contacts}
-          filter={filter}
-          onDeleteContact={onDeleteContact}
-        />}
-        
-      </section>
+      <Suspense fallback={<p>Загружаем...</p>} >
+        <section className="section">
+          <Switch>
+            <Route exact path='/' component={HomePage} />
+            <Route path='/register' component={RegisterPage} />
+            <Route path='/login' component={LoginPage} />
+            <Route path='/contacts' render={(props) => <ContactsPageContainer {...props} />}/>
+          </Switch>
+        </section>
+      </Suspense>
     )
-  }
+  };
 };
-
-// const mapStateToProps = state => ({
-//   contacts: selectors.getAllContacts(state),
-//   filter: selectors.getFilter(state)
-// });
-
-// const mapDispatchToProps = dispatch => ({
-//   onStoreUpdate: contacts => dispatch(onStoreUpdate(contacts)),
-//   onAddContact: contact => dispatch(onAddContact(contact)),
-//   onDeleteContact: contactId => dispatch(onDeleteContact(contactId)),
-//   onSearchContacts: event => dispatch(onSearchContacts(event))
-// })
-
-// export default connect(mapStateToProps, mapDispatchToProps)(PhoneBook);
 
 export default PhoneBook;

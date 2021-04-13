@@ -22,27 +22,30 @@ class ContactForm extends Component {
 
     render() {
         return (
-            <form className={styles.addContact_form} onSubmit={(e) => {
-                e.preventDefault();
-                this.handleSubmit();
-                e.target.elements.name.value = '';
-                e.target.elements.number.value = '';
-                }}
-            >
-                <label className={styles.addContact_label} htmlFor="" name="contact">
-                    <span className={styles.input_text}>Enter your name</span>
-                    <input className={styles.addContact_input} type="text" placeholder="name" name="name" onChange={e => {
-                      this.handleChange(e);
-                  }}/>
-                </label>
-                <label className={styles.addContact_label}>
-                    <span className={styles.input_text}>Enter your phone number</span>
-                    <input className={styles.addContact_input} type="tel" placeholder="phone" name="number" onChange={e => {
-                      this.handleChange(e);
-                  }}/>
-                </label>
-                <button className={styles.addContact_button} type="submit">Add Contact</button>
-            </form>
+            <>
+                <h1>Phone Book</h1>
+                <form className={styles.addContact_form} onSubmit={(e) => {
+                    e.preventDefault();
+                    this.handleSubmit();
+                    e.target.elements.name.value = '';
+                    e.target.elements.number.value = '';
+                    }}
+                >
+                    <label className={styles.addContact_label} htmlFor="" name="contact">
+                        <span className={styles.input_text}>Enter your name</span>
+                        <input className={styles.addContact_input} type="text" placeholder="name" name="name" onChange={e => {
+                        this.handleChange(e);
+                    }}/>
+                    </label>
+                    <label className={styles.addContact_label}>
+                        <span className={styles.input_text}>Enter your phone number</span>
+                        <input className={styles.addContact_input} type="tel" placeholder="phone" name="number" onChange={e => {
+                        this.handleChange(e);
+                    }}/>
+                    </label>
+                    <button className={styles.addContact_button} type="submit">Add Contact</button>
+                </form>
+            </>
         );
     };
 };

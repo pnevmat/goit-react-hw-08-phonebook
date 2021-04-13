@@ -1,7 +1,7 @@
 import axios from 'axios';
 import actions from '../actions/deleteContact';
 
-axios.defaults.baseURL = 'http://localhost:4040';
+axios.defaults.baseURL = 'https://goit-phonebook-api.herokuapp.com';
 
 const onDeleteContact = id => dispatch => {
 

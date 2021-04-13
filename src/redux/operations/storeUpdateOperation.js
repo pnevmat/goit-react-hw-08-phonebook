@@ -1,7 +1,7 @@
 import axios from 'axios';
 import actions from '../actions/didMountStoreUpdate';
 
-axios.defaults.baseURL = 'http://localhost:4040';
+axios.defaults.baseURL = 'https://goit-phonebook-api.herokuapp.com';
 
 const onStoreUpdate = text => dispatch => {
 
