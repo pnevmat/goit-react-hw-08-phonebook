@@ -1,8 +1,8 @@
 import {createReducer} from '@reduxjs/toolkit';
 
-import storeUpdate from '../actions/didMountStoreUpdate';
-import addContact from '../actions/addContact';
-import deleteContact from '../actions/deleteContact';
+import storeUpdate from '../actions/ContactPageActions/didMountStoreUpdate';
+import addContact from '../actions/ContactPageActions/addContact';
+import deleteContact from '../actions/ContactPageActions/deleteContact';
 
 const contactsReducer = createReducer([], {
     [storeUpdate.updateStoreSuccess]: (_, {payload}) => [...payload],

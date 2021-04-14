@@ -1,8 +1,13 @@
+import RegistrationForm from "../components/RegistrationForm/registrationForm"
 
-const RegisterPage = () => {
+const RegisterPage = (props) => {
+    const {onRegistrationSubmit} = props;
     return (
         <>
-            <p>Sign Up Form</p>
+            <h3>Sign Up Form</h3>
+            <RegistrationForm 
+                onRegistrationSubmit={onRegistrationSubmit}
+            />
         </>
     )
 };

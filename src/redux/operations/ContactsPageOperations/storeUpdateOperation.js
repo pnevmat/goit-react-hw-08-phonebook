@@ -1,5 +1,5 @@
 import axios from 'axios';
-import actions from '../actions/didMountStoreUpdate';
+import actions from '../../actions/ContactPageActions/didMountStoreUpdate';
 
 axios.defaults.baseURL = 'https://goit-phonebook-api.herokuapp.com';
 

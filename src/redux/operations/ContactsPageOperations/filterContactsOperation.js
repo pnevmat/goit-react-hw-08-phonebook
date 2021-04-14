@@ -1,4 +1,4 @@
-import onSearchContacts from '../actions/searchContacts';
+import onSearchContacts from '../../actions/ContactPageActions/searchContacts';
 
 const onFilterContacts = text => dispatch => {
     dispatch(onSearchContacts(text));

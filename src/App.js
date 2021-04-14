@@ -2,8 +2,8 @@ import React, {Component, lazy, Suspense} from 'react';
 import {Route, Switch} from 'react-router-dom';
 
 import HomePage from './views/homePage';
-import RegisterPage from './views/registerPage';
-import LoginPage from './views/loginPage';
+import RegistrationContainer from './redux/containers/registrationContainer';
+import LoginContainer from './redux/containers/loginContainer';
 import ContactsPageContainer from './redux/containers/contactsPageContainer';
 // import ContactForm from './components/ContactsPage/ContactForm/ContactForm';
 // import Filter from './components/ContactsPage/Filter/Filter';
@@ -31,8 +31,8 @@ class PhoneBook extends Component {
         <section className="section">
           <Switch>
             <Route exact path='/' component={HomePage} />
-            <Route path='/register' component={RegisterPage} />
-            <Route path='/login' component={LoginPage} />
+            <Route path='/register' render={(props) => <RegistrationContainer {...props} />} />
+            <Route path='/login' render={(props) => <LoginContainer {...props} />} />
             <Route path='/contacts' render={(props) => <ContactsPageContainer {...props} />}/>
           </Switch>
         </section>

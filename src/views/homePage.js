@@ -1,14 +1,11 @@
-import { NavLink } from "react-router-dom"
+import Header from '../components/Header/header';
 
 
-const HomePage = () => {
+const HomePage = (props) => {
     return (
-        <section>
-            <NavLink to='/'>Home</NavLink>
-            <NavLink to='/register'>Sign Up</NavLink>
-            <NavLink to='/login'>Sign In</NavLink>
-            <NavLink to='/contacts'>Contacts</NavLink>
-        </section>
+        <>
+            <Header />
+        </>
     )
 };
 

@@ -1,10 +1,10 @@
 import { Component } from 'react';
 import {connect} from 'react-redux';
 
-import onStoreUpdate from '../operations/storeUpdateOperation';
-import onAddContact from '../operations/addContactOperation';
-import onDeleteContact from '../operations/deleteContactOperation';
-import onFilterContacts from '../operations/filterContactsOperation';
+import onStoreUpdate from '../operations/ContactsPageOperations/storeUpdateOperation';
+import onAddContact from '../operations/ContactsPageOperations/addContactOperation';
+import onDeleteContact from '../operations/ContactsPageOperations/deleteContactOperation';
+import onFilterContacts from '../operations/ContactsPageOperations/filterContactsOperation';
 
 import selectors from '../selectors/selectors';
 

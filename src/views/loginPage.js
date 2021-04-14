@@ -1,8 +1,13 @@
+import LoginForm from "../components/LoginForm/loginForm"
 
-const LoginPage = () => {
+const LoginPage = (props) => {
+    const {onLoginSubmit} = props;
     return (
         <>
-            <p>Login Form</p>
+            <h3>Login Form</h3>
+            <LoginForm 
+                onLoginSubmit={onLoginSubmit}
+            />
         </>
     )
 };

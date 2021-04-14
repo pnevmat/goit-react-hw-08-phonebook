@@ -1,5 +1,5 @@
 import axios from 'axios';
-import actions from '../actions/deleteContact';
+import actions from '../../actions/ContactPageActions/deleteContact';
 
 axios.defaults.baseURL = 'https://goit-phonebook-api.herokuapp.com';
 
