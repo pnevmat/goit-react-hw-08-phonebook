@@ -5,6 +5,8 @@ import loginOperation from '../operations/AuthorisationOperations/loginOperation
 
 import LoginPage from '../../views/loginPage';
 
+// import selectors from '../selectors/selectors';
+
 class LoginContainer extends Component {
 
     render() {
@@ -17,9 +19,14 @@ class LoginContainer extends Component {
         />
     };
 };
-  
-  const mapDispatchToProps = dispatch => ({
-    onLoginSubmit: userData => dispatch(loginOperation(userData))
-  })
+
+// const mapStateToProps = state => ({
+//   userName: selectors.getUserName(state),
+//   authorisation: selectors.authorisation(state)
+// })
+
+const mapDispatchToProps = dispatch => ({
+  onLoginSubmit: userData => dispatch(loginOperation(userData))
+});
 
 export default connect(null, mapDispatchToProps)(LoginContainer);

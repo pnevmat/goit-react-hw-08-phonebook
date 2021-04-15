@@ -3,6 +3,12 @@ import loginActions from '../../actions/AuthorisationActions/loginActions';
 
 axios.defaults.baseURL = 'https://goit-phonebook-api.herokuapp.com';
 
+const token = {
+    set(token) {
+        axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+    }
+};
+
 // {
 //     "name":"Vadim",
 //     "email":"kislenkoandrey10@gmail.com",
@@ -23,6 +29,7 @@ const registerOperation = userData => async dispatch => {
     try {
         const response = await axios.post('/users/login', userData);
 
+        token.set(response.data.token)
         dispatch(loginActions.loginSuccess(response.data));
     }catch(error) {
         dispatch(loginActions.loginError(error.message));

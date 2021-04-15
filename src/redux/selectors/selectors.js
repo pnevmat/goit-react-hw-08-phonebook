@@ -24,5 +24,6 @@ const contactsFinderHandler = createSelector([getAllContacts, getFilter], (conta
 });
 
 const authorisation = state => state.userToken;
+const getUserName = state => state.userData.name;
 
-export default {getAllContacts, getFilter, contactsFinderHandler, authorisation};
+export default {getAllContacts, getFilter, contactsFinderHandler, authorisation, getUserName};

@@ -1,24 +1,11 @@
-import { NavLink } from "react-router-dom";
+import AutorisationNav from './autorisationNav';
+import UserMenu from './userMenu';
 
 const Header = (props) => {
+    const {authorisation, userName} = props;
     return (
         <>
-            <ul>
-                <li>
-                    <NavLink to='/'>Home</NavLink>
-                </li>
-                <li>
-                    <NavLink to='/contacts'>Contacts</NavLink>
-                </li>
-            </ul>
-            <ul>
-                <li>
-                    <NavLink to='/register'>Sign Up</NavLink>
-                </li>
-                <li>
-                    <NavLink to='/login'>Log In</NavLink>
-                </li>
-            </ul>
+            {authorisation ? <UserMenu userName={userName} /> : <AutorisationNav />}
         </>
     );
 };

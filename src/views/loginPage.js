@@ -1,9 +1,11 @@
-import LoginForm from "../components/LoginForm/loginForm"
+import Header from '../components/Header/header';
+import LoginForm from "../components/LoginForm/loginForm";
 
 const LoginPage = (props) => {
-    const {onLoginSubmit} = props;
+    const {onLoginSubmit, userName, authorisation} = props;
     return (
         <>
+            <Header />
             <h3>Login Form</h3>
             <LoginForm 
                 onLoginSubmit={onLoginSubmit}

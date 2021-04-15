@@ -1,7 +1,9 @@
 import React, {Component, lazy, Suspense} from 'react';
 import {Route, Switch} from 'react-router-dom';
+import PrivateRoute from './components/privateRoute';
+import PublicRoute from './components/publicRoute';
 
-import HomePage from './views/homePage';
+import HomePageContainer from './redux/containers/homePageContainer';
 import RegistrationContainer from './redux/containers/registrationContainer';
 import LoginContainer from './redux/containers/loginContainer';
 import ContactsPageContainer from './redux/containers/contactsPageContainer';
@@ -30,10 +32,10 @@ class PhoneBook extends Component {
       <Suspense fallback={<p>Загружаем...</p>} >
         <section className="section">
           <Switch>
-            <Route exact path='/' component={HomePage} />
+            <Route exact path='/' render={(props) => <HomePageContainer {...props} />} />
             <Route path='/register' render={(props) => <RegistrationContainer {...props} />} />
-            <Route path='/login' render={(props) => <LoginContainer {...props} />} />
-            <Route path='/contacts' render={(props) => <ContactsPageContainer {...props} />}/>
+            <PublicRoute path='/login' restricted component={LoginContainer} redirectTo='/contacts' />
+            <PrivateRoute path='/contacts' component={ContactsPageContainer} redirectTo='/login' />
           </Switch>
         </section>
       </Suspense>

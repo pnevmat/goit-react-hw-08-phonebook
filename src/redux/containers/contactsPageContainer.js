@@ -53,6 +53,8 @@ class ContactsPageContainer extends Component {
 const mapStateToProps = state => ({
     contacts: selectors.getAllContacts(state),
     filter: selectors.getFilter(state),
+    authorisation: selectors.authorisation(state),
+    userName: selectors.getUserName(state),
     foundContacts: selectors.contactsFinderHandler(state)
   });
   

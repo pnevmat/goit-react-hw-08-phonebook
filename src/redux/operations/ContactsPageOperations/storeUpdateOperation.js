@@ -11,7 +11,7 @@ const onStoreUpdate = text => dispatch => {
     .then(({data}) => {
         return dispatch(actions.updateStoreSuccess(data))})
     .catch(error => {
-        return dispatch(actions.updateStoreError(error))})
+        return dispatch(actions.updateStoreError(error.message))})
 }
 
 export default onStoreUpdate;
