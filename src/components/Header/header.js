@@ -1,11 +1,11 @@
 import AutorisationNav from './autorisationNav';
-import UserMenu from './userMenu';
+import LogoutContainer from '../../redux/containers/logoutContainer';
 
 const Header = (props) => {
     const {authorisation, userName} = props;
     return (
         <>
-            {authorisation ? <UserMenu userName={userName} /> : <AutorisationNav />}
+            {authorisation ? <LogoutContainer userName={userName} /> : <AutorisationNav />}
         </>
     );
 };

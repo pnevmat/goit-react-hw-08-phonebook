@@ -1,25 +1,25 @@
 import axios from "axios";
-import logoutActions from '../../actions/AuthorisationActions/loginActions';
+import logoutActions from '../../actions/AuthorisationActions/logoutActions';
 
 axios.defaults.baseURL = 'https://goit-phonebook-api.herokuapp.com';
 
 const token = {
     unset() {
-        axios.defaults.headers.common.Authorization = '';
+        axios.defaults.headers.common.Authorization = null;
     }
 };
 
-const registerOperation = () => async dispatch => {
+const logoutOperation = () => async dispatch => {
     dispatch(logoutActions.logoutRequest());
 
     try {
-        await axios.post('/users/logout');
+        const response = await axios.post('/users/logout');
 
         token.unset();
-        dispatch(logoutActions.logoutSuccess());
+        dispatch(logoutActions.logoutSuccess(response.data));
     }catch(error) {
         dispatch(logoutActions.logoutError(error.message));
     };
 };
 
-export default registerOperation;
+export default logoutOperation;

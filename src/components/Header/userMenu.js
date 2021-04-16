@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 
 const UserMenu = (props) => {
-    const {userName} = props;
+    const {userName, onLogout} = props;
     return (
         <>
             <ul>
@@ -14,7 +14,7 @@ const UserMenu = (props) => {
             </ul>
             <div>
                 <p>Welcome, {userName}</p>
-                <button type='button'>Logout</button>
+                <button type='button' onClick={onLogout}>Logout</button>
             </div>
         </>
     );
