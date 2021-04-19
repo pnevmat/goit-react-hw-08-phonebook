@@ -1,5 +1,7 @@
 .search_label {
-    display: block;
+    display: inline-block;
+    width: 100%;
+    max-width: 700px;
     margin-bottom: 30px;
     text-align: left;
 }

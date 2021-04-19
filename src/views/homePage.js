@@ -9,6 +9,7 @@ const HomePage = (props) => {
                 userName={userName}
                 authorisation={authorisation}
             />
+            <h1>Home Page</h1>
         </>
     )
 };

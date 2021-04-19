@@ -1,4 +1,7 @@
 .contactList {
+    display: block;
+    width: 100%;
+    max-width: 700px;
     padding-right: 250px;
 }
 
@@ -23,10 +26,17 @@
     justify-content: space-between;
 }
 
-.contact_name {
+.contact_name_container {
     display: inline-block;
+}
+
+.contact_name_container :not(:last-child) {
+    margin-bottom: 5px;
+}
+
+.contact_name {
+    display: block;
     margin-top: 0;
-    margin-right: 10px;
     margin-bottom: 0;
     margin-left: 0;
 }

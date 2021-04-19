@@ -3,6 +3,8 @@ import ContactForm from "../components/ContactForm/ContactForm";
 import Filter from '../components/Filter/Filter';
 import ContactList from "../components/ContactList/ContactList";
 
+import styles from './contactsPage.module.css';
+
 const ContactsPage = (props) => {
     const {
         onFilterContacts,
@@ -20,20 +22,22 @@ const ContactsPage = (props) => {
                 userName={userName}
                 authorisation={authorisation}
             />
-            <ContactForm
-                onSubmit={onStateUpdate}
-            />
-            <Filter
-                onChange={onFilterContacts}
-            />
-            {contacts.length !== 0 &&
-                <ContactList
-                    foundContacts={foundContacts}
-                    state={contacts}
-                    filter={filter}
-                    onDeleteContact={onDeleteContact}
+            <section className={styles.section}>
+                <ContactForm
+                    onSubmit={onStateUpdate}
                 />
-            }
+                <Filter
+                    onChange={onFilterContacts}
+                />
+                {contacts.length !== 0 &&
+                    <ContactList
+                        foundContacts={foundContacts}
+                        state={contacts}
+                        filter={filter}
+                        onDeleteContact={onDeleteContact}
+                    />
+                }
+            </section>  
         </>
     )
 };

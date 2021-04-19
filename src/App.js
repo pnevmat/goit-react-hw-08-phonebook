@@ -17,30 +17,18 @@ import getUserDataOperation from './redux/operations/AuthorisationOperations/get
 
 import './App.css';
 
-const HomePageContainer = lazy(() => import('./redux/containers/homePageContainer'));
-const RegistrationContainer = lazy(() => import('./redux/containers/registrationContainer'));
-const LoginContainer = lazy(() => import('./redux/containers/loginContainer'));
-const ContactsPageContainer = lazy(() => import('./redux/containers/contactsPageContainer'));
+const HomePageContainer = lazy(() => import('./redux/containers/homePageContainer' /* webpackChunkName: "Home-Page" */));
+const RegistrationContainer = lazy(() => import('./redux/containers/registrationContainer' /* webpackChunkName: "Registration-Page" */));
+const LoginContainer = lazy(() => import('./redux/containers/loginContainer' /* webpackChunkName: "Login-Page" */));
+const ContactsPageContainer = lazy(() => import('./redux/containers/contactsPageContainer' /* webpackChunkName: "Contacts-Page" */));
 
 class PhoneBook extends Component {
 
   componentDidMount() {
     this.props.ongetUserData()
-  }
-
-  // onStateUpdate = (obj) => {
-  //   const {onAddContact} = this.props;
-
-  //   if (this.props.contacts.find(contact => contact.name === obj.name)) {
-  //     alert(`${obj.name}is alredy in contacts`);
-
-  //   } else {
-  //     onAddContact(obj);
-  //   };
-  // };
+  };
 
   render() {
-    // const {onFilterContacts, contacts, filter, foundContacts, onDeleteContact} = this.props;
     return (
       <Suspense fallback={<p>Загружаем...</p>} >
         <section className="section">

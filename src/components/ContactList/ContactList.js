@@ -9,7 +9,10 @@ const ContactList = ({filter, state, foundContacts, onDeleteContact}) => (
       state.map(contact => (
         <li className={styles.contact_item} key={contact.id}>
           <div className={styles.contact_item_container}>
-            <p className={styles.contact_name}>{contact.name}: {contact.number}</p>
+            <div className={styles.contact_name_container}>
+              <p className={styles.contact_name}>{contact.name}:</p>
+              <p className={styles.contact_name}>{contact.number}</p>
+            </div>
             <button className={styles.contact_button} type="button" onClick={() => onDeleteContact(contact.id)}>Delete</button>
           </div>
         </li>
@@ -17,7 +20,10 @@ const ContactList = ({filter, state, foundContacts, onDeleteContact}) => (
       foundContacts.map(contact => (
         <li className={styles.contact_item} key={contact.id}>
           <div className={styles.contact_item_container}>
-            <p className={styles.contact_name}>{contact.name}: {contact.number}</p>
+            <div className={styles.contact_name_container}>
+              <p className={styles.contact_name}>{contact.name}:</p>
+              <p className={styles.contact_name}>{contact.number}</p>
+            </div>
             <button className={styles.contact_button} type="button">Delete</button>
           </div>
         </li>

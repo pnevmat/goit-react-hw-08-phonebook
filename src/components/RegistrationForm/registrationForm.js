@@ -1,4 +1,5 @@
 import {Component} from 'react';
+import PropTypes from 'prop-types';
 
 import styles from './registrationForm.module.css';
 
@@ -55,4 +56,8 @@ class RegistrationForm extends Component {
     }
 };
 
-export default RegistrationForm
+export default RegistrationForm;
+
+RegistrationForm.propTypes = {
+    onRegistrationSubmit: PropTypes.func.isRequired,
+};

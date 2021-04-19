@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 
 import logoutOperation from '../operations/AuthorisationOperations/logoutOperation';
 
-import UserMenu from '../../components/Header/userMenu';
+import UserMenu from '../../components/Header/userMenu/userMenu';
 
 // import selectors from '../selectors/selectors';
 
