@@ -24,7 +24,6 @@ const contactsFinderHandler = createSelector([getAllContacts, getFilter], (conta
 });
 
 const authorisation = state => {
-  console.log(state);
   return state.isAuthorised};
 const getUserName = state => state.userData.name;
 

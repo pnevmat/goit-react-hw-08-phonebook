@@ -34,7 +34,7 @@ class PhoneBook extends Component {
         <section className="section">
           <Switch>
             <Route exact path='/' render={(props) => <HomePageContainer {...props} />} />
-            <Route path='/register' render={(props) => <RegistrationContainer {...props} />} />
+            <PublicRoute path='/register' restricted component={RegistrationContainer} redirectTo='/contacts' />
             <PublicRoute path='/login' restricted component={LoginContainer} redirectTo='/contacts' />
             <PrivateRoute path='/contacts' component={ContactsPageContainer} redirectTo='/login' />
           </Switch>
