@@ -20,6 +20,7 @@ class RegistrationForm extends Component {
         const {onRegistrationSubmit} = this.props;
 
         onRegistrationSubmit(this.state);
+        this.setState({ name: '', email: '', password: ''});
     };
 
     render() {
@@ -27,9 +28,6 @@ class RegistrationForm extends Component {
             <form className={styles.registration_form} onSubmit={(e) => {
                 e.preventDefault();
                 this.handleSubmit();
-                e.target.elements.name.value = '';
-                e.target.elements.email.value = '';
-                e.target.elements.password.value = '';
                 }}
             >
                 <label className={styles.registration_label} htmlFor="" name="contact">
